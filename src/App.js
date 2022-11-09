@@ -1,4 +1,5 @@
 import "./App.css";
+import Characters from "./components/Characters";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         >
           Learn React
         </a>
+        <Characters/>
       </header>
     </div>
   );
