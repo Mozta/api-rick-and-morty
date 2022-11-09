@@ -6,15 +6,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Rick and Morty</h1>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Characters/>
+
+        <div className="container">
+          <Characters/>
+        </div>
+        
       </header>
     </div>
   );

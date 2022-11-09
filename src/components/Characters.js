@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Character from "./Character";
 
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
@@ -19,11 +20,11 @@ const Characters = () => {
 
   return (
     <>
-      <ul>
+      <div className="row">
         {characters.map((character) => {
-          return <li key={character.id}>{character.name} <img src={character.image} alt="" /></li>;
+          return <Character key={character.id} character={character} />;
         })}
-      </ul>
+      </div>
     </>
   );
 };
