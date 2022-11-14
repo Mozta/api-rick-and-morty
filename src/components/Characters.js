@@ -4,19 +4,16 @@ import Character from "./Character";
 
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
+  const [page, setPage] = useState(1);
 
-  const url = "https://rickandmortyapi.com/api/character";
-  const alumnos = ["Andrea", "Aldo", "Abraham"];
+  const url =
+    "https://rickandmortyapi.com/api/character?page=" + page.toString();
 
   useEffect(() => {
-    // setResult((amount * 3) / 2);
     axios.get(url).then((response) => {
-      //console.log(response.data.results);
       setCharacters(response.data.results);
     });
-  }, []);
-
-  console.log(characters);
+  });
 
   return (
     <>
@@ -24,6 +21,19 @@ const Characters = () => {
         {characters.map((character) => {
           return <Character key={character.id} character={character} />;
         })}
+
+        <div className="row justify-content-around mb-5">
+          <div className="col-4">
+            <button className="btn btn-info" onClick={() => setPage(page - 1)}>
+              Anterior
+            </button>
+          </div>
+          <div className="col-4">
+            <button className="btn btn-info" onClick={() => setPage(page + 1)}>
+              Siguiente
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
